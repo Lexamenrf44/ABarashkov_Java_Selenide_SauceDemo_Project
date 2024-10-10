@@ -10,10 +10,12 @@ public class GoogleLoginTest extends TestConfiguration {
 
     @Test
     void useGoogleSearch () {
-        sleep(3000);  // Wait for 5 seconds
+        sleep(3000);  // Wait for 3 seconds
         $("[aria-label='Sign in']").shouldBe(visible).click();
-        sleep(3000);  // Wait for 10 seconds
+        sleep(3000);  // Wait for 3 seconds
         $("[aria-label='Email or phone']").setValue("abarashkov.test01@gmail.com");
-        sleep(3000);  // Wait for 10 seconds
+        sleep(3000);  // Wait for 3 seconds
+        $("#identifierNext").shouldBe(visible).click();
+        sleep(3000);  // Wait for 3 seconds
     }
 }
