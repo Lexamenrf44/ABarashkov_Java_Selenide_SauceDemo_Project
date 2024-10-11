@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class GoogleLoginTest extends Config {
 
     @Test
-    @DisplayName("Google Authorization 1")
+    @DisplayName("Google Authorization")
     void loginToGoogleAccount () {
         open("/");
         $(App.signed_in_label).shouldNot(exist);
