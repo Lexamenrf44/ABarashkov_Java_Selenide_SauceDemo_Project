@@ -4,6 +4,7 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 allure-results/
+settings.gradle.kts
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
