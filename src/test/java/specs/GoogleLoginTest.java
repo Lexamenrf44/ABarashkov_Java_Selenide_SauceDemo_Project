@@ -1,15 +1,16 @@
 package specs;
 
-import support.Data;
+import support.Config;
 import pages.App;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class GoogleLoginTest extends Data {
+public class GoogleLoginTest extends Config {
 
     @Test
+    @DisplayName("Google Authorization 1")
     void loginToGoogleAccount () {
         open("/");
         $(App.signed_in_label).shouldNot(exist);

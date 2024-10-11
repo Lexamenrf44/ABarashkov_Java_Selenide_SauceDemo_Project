@@ -1,16 +1,32 @@
 plugins {
-    id 'java'
+    id "java"
+    id "io.qameta.allure" version "2.12.0"
 }
 
 repositories {
     mavenCentral()
 }
 
+def allureVersion = "2.29.0",
+    junitVersion = "5.11.2"
+
+// Allure report configuration
+allure {
+    version.set(allureVersion)
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.2'
-    testImplementation 'com.codeborne:selenide:7.5.1'
-    testImplementation 'org.assertj:assertj-core:3.26.3'
-    testRuntimeOnly 'org.slf4j:slf4j-simple:2.0.16'
+
+    testImplementation(
+            "com.codeborne:selenide:7.5.1",
+            "org.assertj:assertj-core:3.26.3",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+    )
+    testRuntimeOnly(
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+            "org.slf4j:slf4j-simple:2.0.16"
+    )
 }
 
 [compileJava, compileTestJava]*.options.collect {options -> options.encoding = 'UTF-8'}
@@ -24,6 +40,14 @@ tasks.withType(Test).configureEach { testTask ->
     testTask.testLogging.showStandardStreams = true
     testTask.outputs.upToDateWhen { false }
     testTask.useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+//          events "started", "failed"
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
 task chrome(type: Test) {
