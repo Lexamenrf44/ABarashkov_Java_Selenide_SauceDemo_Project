@@ -1,6 +1,7 @@
 package specs;
 
 import support.Data;
+import pages.App;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -11,10 +12,10 @@ public class GoogleLoginTest extends Data {
     @Test
     void loginToGoogleAccount () {
         open("/");
-        $("[aria-label^='Google Account:']").shouldNot(exist);
-        $("[aria-label='Sign in']").shouldBe(visible).click();
-        $("[aria-label='Email or phone']").setValue("login").pressEnter();
-        $("[aria-label='Enter your password']").setValue("password").pressEnter();
-        $("[aria-label^='Google Account:']").shouldBe(visible);
+        $(App.signed_in_label).shouldNot(exist);
+        $(App.sign_in_button).shouldBe(visible).click();
+        $(App.login_field).setValue("login").pressEnter();
+        $(App.password_field).setValue("password").pressEnter();
+        $(App.signed_in_label).shouldBe(visible);
     }
 }
