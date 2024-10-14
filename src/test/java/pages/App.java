@@ -9,11 +9,15 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class App {
 
-    //HelpMethods
+
+    /* METHODS */
+
+    //DuckDuckGo Results Collection Aggregator
     public ElementsCollection getResults() {
         return $$("[data-testid=\"result\"]");
     }
 
+    //DuckDuckGo Results Collection Aggregator index
     public SelenideElement getResult(int index) {
         return $("#r1-" + index);
     }
@@ -21,6 +25,8 @@ public class App {
     public void searchFor(String text) {
         $(By.name("q")).val(text).pressEnter();
     }
+
+    /* LOCATORS */
 
     //Common
     public static final String signed_in_label = "[aria-label^='Google Account:']";

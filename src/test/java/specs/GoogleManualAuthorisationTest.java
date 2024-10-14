@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class GoogleLoginTest extends Config {
+public class GoogleManualAuthorisationTest extends Config {
 
     @Test
     @DisplayName("Google Authorization")
