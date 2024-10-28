@@ -102,7 +102,7 @@ die () {
     exit 1
 } >&2
 
-# OS specific support (must be 'true' or 'false').
+# OS specific com.saucedemo.support (must be 'true' or 'false').
 cygwin=false
 msys=false
 darwin=false
