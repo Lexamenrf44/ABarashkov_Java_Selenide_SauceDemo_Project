@@ -13,7 +13,7 @@ public class ValidAuthTest extends TestBase {
     @DisplayName("Should authorize with valid credentials")
     void loginWithInvalidCredentials() {
         open("");
-        loginPage.loginUi(Username.standard_user, Password.secret_sauce);
-        inventoryPage.successfulAuth();
+        loginPage.doLogin(Username.standard_user, Password.secret_sauce);
+        inventoryPage.waitUntilLoaded();
     }
 }

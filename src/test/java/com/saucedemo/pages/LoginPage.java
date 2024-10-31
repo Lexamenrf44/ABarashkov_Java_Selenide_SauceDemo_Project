@@ -30,7 +30,7 @@ public class LoginPage {
 
     /* METHODS */
 
-    public LoginPage loginUi(Username username, Password password) {
+    public LoginPage doLogin(Username username, Password password) {
         loginField.setValue(username.name());
         passwordField.setValue(password.name());
         loginButton.click();
@@ -38,7 +38,7 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage loginUi() {
+    public LoginPage setEmptyAuthFields() {
         loginField.setValue("");
         passwordField.setValue("");
         loginButton.click();

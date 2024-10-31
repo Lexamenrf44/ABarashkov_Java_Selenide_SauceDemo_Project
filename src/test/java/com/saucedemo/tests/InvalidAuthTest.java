@@ -14,7 +14,7 @@ public class InvalidAuthTest extends TestBase {
     void loginWithInvalidCredentials() {
         open("");
         loginPage
-                .loginUi(Username.locked_out_user, Password.secret_sauce)
+                .doLogin(Username.locked_out_user, Password.secret_sauce)
                 .lockedOutUserAssertion();
     }
 
@@ -23,7 +23,7 @@ public class InvalidAuthTest extends TestBase {
     void loginWithoutCredentials() {
         open("");
         loginPage
-                .loginUi()
+                .setEmptyAuthFields()
                 .emptyUserAssertion();
     }
 }
