@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -46,15 +46,17 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage lockedOutUserAssertion () {
+    public LoginPage lockedOutUserAssertion() {
         errorLabel.shouldHave(text("Epic sadface: Sorry, this user has been locked out."));
 
         return this;
     }
 
-    public LoginPage emptyUserAssertion () {
+    public LoginPage emptyUserAssertion() {
         errorLabel.shouldHave(text("Epic sadface: Username is required"));
 
         return this;
     }
+
+
 }

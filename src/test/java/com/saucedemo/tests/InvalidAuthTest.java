@@ -1,11 +1,12 @@
 package com.saucedemo.tests;
 
-import com.saucedemo.data.Username;
 import com.saucedemo.data.Password;
+import com.saucedemo.data.Username;
 import com.saucedemo.support.TestBase;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class InvalidAuthTest extends TestBase {
 
