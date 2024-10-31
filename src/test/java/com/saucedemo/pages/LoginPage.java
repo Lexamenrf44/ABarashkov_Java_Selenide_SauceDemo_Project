@@ -30,7 +30,7 @@ public class LoginPage {
 
     /* METHODS */
 
-    public LoginPage invalidAuth (Username username, Password password) {
+    public LoginPage doLogin(Username username, Password password) {
         loginField.setValue(username.name());
         passwordField.setValue(password.name());
         loginButton.click();
@@ -38,8 +38,22 @@ public class LoginPage {
         return this;
     }
 
+    public LoginPage setEmptyAuthFields() {
+        loginField.setValue("");
+        passwordField.setValue("");
+        loginButton.click();
+
+        return this;
+    }
+
     public LoginPage lockedOutUserAssertion () {
-        errorLabel.shouldBe(visible);
+        errorLabel.shouldHave(text("Epic sadface: Sorry, this user has been locked out."));
+
+        return this;
+    }
+
+    public LoginPage emptyUserAssertion () {
+        errorLabel.shouldHave(text("Epic sadface: Username is required"));
 
         return this;
     }

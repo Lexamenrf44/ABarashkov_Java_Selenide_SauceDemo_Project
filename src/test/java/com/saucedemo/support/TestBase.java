@@ -3,6 +3,7 @@ package com.saucedemo.support;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class TestBase {
 
     protected final LoginPage loginPage = new LoginPage();
+    protected final InventoryPage inventoryPage = new InventoryPage();
 
     @BeforeAll
     static void browserOpeningConfiguration() {
