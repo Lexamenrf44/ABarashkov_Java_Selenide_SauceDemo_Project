@@ -1,3 +1,4 @@
+gradle/
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -7,6 +8,7 @@ allure-results/
 settings.gradle.kts
 
 ### IntelliJ IDEA ###
+.idea
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
