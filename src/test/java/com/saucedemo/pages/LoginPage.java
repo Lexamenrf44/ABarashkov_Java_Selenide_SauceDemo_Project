@@ -3,6 +3,7 @@ package com.saucedemo.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;

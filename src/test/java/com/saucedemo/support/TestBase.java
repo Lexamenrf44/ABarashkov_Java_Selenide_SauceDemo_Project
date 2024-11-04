@@ -1,16 +1,13 @@
 package com.saucedemo.support;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
+import com.saucedemo.jupiter.BrowserExtension;
 import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-
+@ExtendWith(BrowserExtension.class)
 public class TestBase {
 
     protected final LoginPage loginPage = new LoginPage();
@@ -23,13 +20,4 @@ public class TestBase {
         Configuration.browserSize = "1920x1080";
     }
 
-    @BeforeEach
-    void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void browserClosingConfiguration() {
-        Selenide.closeWebDriver();
-    }
 }

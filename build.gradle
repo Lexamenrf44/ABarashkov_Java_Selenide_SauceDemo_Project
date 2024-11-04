@@ -22,6 +22,8 @@ dependencies {
             "org.assertj:assertj-core:3.26.3",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "org.aspectj:aspectjrt:1.9.7",
+            "org.aspectj:aspectjweaver:1.9.7",
     )
     testRuntimeOnly(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
