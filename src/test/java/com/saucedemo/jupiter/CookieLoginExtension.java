@@ -22,7 +22,6 @@ public class CookieLoginExtension implements BeforeEachCallback {
         if (annotation.isPresent()) {
             CookieLogin cookieLogin = annotation.get();
 
-            open("");
             String username = cookieLogin.username().name();
             Date expdate = Date.from(Instant.now().plus(cookieLogin.cookieLifeTimeInSeconds(), ChronoUnit.SECONDS));
             Cookie cookie = new Cookie("session-username", username, "/", expdate);

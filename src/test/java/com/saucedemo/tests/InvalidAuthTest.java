@@ -22,7 +22,6 @@ public class InvalidAuthTest extends TestBase {
     @Test
     @DisplayName("Should not authorize without credentials")
     void loginWithoutCredentials() {
-        open("");
         loginPage
                 .setEmptyAuthFields()
                 .emptyUserAssertion();
