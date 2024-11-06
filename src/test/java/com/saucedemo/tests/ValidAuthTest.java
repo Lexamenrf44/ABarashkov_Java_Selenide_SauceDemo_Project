@@ -2,7 +2,6 @@ package com.saucedemo.tests;
 
 import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +13,5 @@ public class ValidAuthTest extends TestBase {
         loginPage.doLogin(Username.standard_user, Password.secret_sauce);
         inventoryPage.waitUntilInventoryContainerVisible();
 
-        Assertions.assertTrue(false);
     }
 }

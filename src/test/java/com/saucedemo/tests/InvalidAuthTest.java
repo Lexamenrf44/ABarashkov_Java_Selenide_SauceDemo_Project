@@ -8,14 +8,11 @@ import com.saucedemo.jupiter.CookieLogin;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
-
 public class InvalidAuthTest extends TestBase {
 
     @Test
     @DisplayName("Should not authorize with locked out user")
     void loginWithLockedOutUser() {
-        open("");
         loginPage
                 .doLogin(Username.locked_out_user, Password.secret_sauce)
                 .invalidUserAuthorisationAssertion(LoginAlerts.LOCKED_OUT_USER_ALERT);

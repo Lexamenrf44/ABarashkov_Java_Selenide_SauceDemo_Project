@@ -10,13 +10,6 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class CookiesAuthTest extends TestBase {
 
-    @CookieLogin
-    @Test
-    @DisplayName("Should authorize via cookies")
-    void loginWithValidUserViaCookies() {
-
-    }
-
     @CookieLogin(cookieLifeTimeInSeconds = 3)
     @Test
     @DisplayName("Should logout after cookies spoiled in 3 seconds on [Refresh]")
