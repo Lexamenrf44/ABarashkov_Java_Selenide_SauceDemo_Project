@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 
 public class InventoryPage {
 
@@ -16,9 +17,15 @@ public class InventoryPage {
 
     /* METHODS */
 
-    public InventoryPage waitUntilLoaded() {
+    public InventoryPage waitUntilInventoryContainerVisible() {
         inventoryContainer
                 .shouldBe(visible);
+
+        return this;
+    }
+
+    public InventoryPage manuallyClearCookies() {
+        clearBrowserCookies();
 
         return this;
     }
