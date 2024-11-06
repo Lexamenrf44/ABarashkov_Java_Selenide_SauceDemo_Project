@@ -1,11 +1,12 @@
 package com.saucedemo.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.saucedemo.data.LoginAlerts;
+import com.saucedemo.data.LogoutAlerts;
 import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
-import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -39,25 +40,27 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage setEmptyAuthFields() {
-        loginField.setValue("");
-        passwordField.setValue("");
+    public LoginPage setAuthFieldsManually(String username, String password) {
+        loginField.setValue(username);
+        passwordField.setValue(password);
         loginButton.click();
 
         return this;
     }
 
-    public LoginPage lockedOutUserAssertion() {
-        errorLabel.shouldHave(text("Epic sadface: Sorry, this user has been locked out."));
+    public LoginPage invalidUserAuthorisationAssertion(LoginAlerts alert) {
+        errorLabel.shouldHave(text(alert.getMessagePattern()));
+        loginField.shouldHave(cssClass("error"));
+        passwordField.shouldHave(cssClass("error"));
 
         return this;
     }
 
-    public LoginPage emptyUserAssertion() {
-        errorLabel.shouldHave(text("Epic sadface: Username is required"));
+    public LoginPage loggedOutUserAssertion(LogoutAlerts alert) {
+        errorLabel.shouldHave(matchText(alert.getMessagePattern()));
+        loginField.shouldHave(cssClass("error"));
+        passwordField.shouldHave(cssClass("error"));
 
         return this;
     }
-
-
 }

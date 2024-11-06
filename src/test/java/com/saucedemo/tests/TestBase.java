@@ -1,4 +1,4 @@
-package com.saucedemo.support;
+package com.saucedemo.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.saucedemo.jupiter.BrowserExtension;
