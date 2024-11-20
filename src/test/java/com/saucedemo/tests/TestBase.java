@@ -7,6 +7,8 @@ import com.saucedemo.pages.LoginPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static com.codeborne.selenide.Browsers.FIREFOX;
+
 @ExtendWith(BrowserExtension.class)
 public class TestBase {
 
@@ -17,7 +19,8 @@ public class TestBase {
     static void browserOpeningConfiguration() {
 
         Configuration.baseUrl = "https://www.saucedemo.com/";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1440x900";
+        Configuration.browser = FIREFOX;
     }
 
 }
