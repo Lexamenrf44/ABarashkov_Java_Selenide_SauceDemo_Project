@@ -5,7 +5,8 @@ import com.saucedemo.jupiter.CookieLogin;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.saucedemo.data.InventoryItems.*;
+import static com.saucedemo.data.InventoryItems.backpack;
+import static com.saucedemo.data.InventoryItems.tShirt;
 
 public class AddInventoryItemsTest extends TestBase {
 
