@@ -59,6 +59,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
 
     implementation "com.codeborne:selenide-proxy:$selenideVersion"
+    implementation "ru.yandex.qatools.ashot:ashot:1.5.4"
 }
 
 tasks.withType(JavaCompile) {
