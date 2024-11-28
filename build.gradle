@@ -11,7 +11,7 @@ repositories {
 }
 
 def allureVersion = '2.27.0',
-    selenideVersion = '7.5.0',
+    selenideVersion = '7.6.0',
     restAssuredVersion = '5.4.0',
     commonsIoVersion = '2.16.1',
     junitVersion = '5.11.0',
