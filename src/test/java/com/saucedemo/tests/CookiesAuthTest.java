@@ -2,6 +2,7 @@ package com.saucedemo.tests;
 
 import com.saucedemo.data.LogoutAlerts;
 import com.saucedemo.jupiter.CookieLogin;
+import com.saucedemo.pages.BasePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,9 +25,7 @@ public class CookiesAuthTest extends TestBase {
     @Test
     @DisplayName("Should logout after manually clearing cookies on [Refresh]")
     void loggedOutAfterClearingCookiesManually() {
-        inventoryPage
-                .waitUntilInventoryContainerVisible()
-                .manuallyClearCookies();
+        inventoryPage.waitUntilInventoryContainerVisible();
         refresh();
         loginPage.loggedOutUserAssertion(LogoutAlerts.INVENTORY_PAGE_ALERT);
     }
