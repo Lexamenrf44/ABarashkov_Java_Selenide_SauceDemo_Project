@@ -6,6 +6,8 @@ build/
 !**/src/test/**/build/
 allure-results/
 settings.gradle.kts
+resources/screenshots/
+
 
 ### IntelliJ IDEA ###
 .idea
