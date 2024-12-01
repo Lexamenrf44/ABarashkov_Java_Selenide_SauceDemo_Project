@@ -24,31 +24,37 @@ public class ItemsPage extends BasePage<ItemsPage> {
     }
 
     public ItemsPage assertBackpackItemImage() {
+        backpackItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(backpackItemImage);
         return this;
     }
 
     public ItemsPage assertBikeLightItemImage() {
+        bikeLightItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(bikeLightItemImage);
         return this;
     }
 
     public ItemsPage assertBoltTShirtItemImage() {
+        boltTShirtItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(boltTShirtItemImage);
         return this;
     }
 
     public ItemsPage assertFleeceJacketItemImage() {
+        fleeceJacketItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(fleeceJacketItemImage);
         return this;
     }
 
     public ItemsPage assertOnesieItemImage() {
+        onesieItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(onesieItemImage);
         return this;
     }
 
     public ItemsPage assertRedJumperItemImage() {
+        redJumperItemImage.shouldBe(visible);
         ScreenshotUtils.verifyScreenshot(redJumperItemImage);
         return this;
     }
