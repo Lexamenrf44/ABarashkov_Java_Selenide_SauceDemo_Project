@@ -12,7 +12,7 @@ public class CartPage extends BasePage<CartPage> {
             cartList = $("[data-test='cart-list']");
 
     @Override
-    @Step("Check that Login Page is visible")
+    @Step("Check that Cart Page is visible")
     public CartPage checkThatPageLoaded() {
         cartList.shouldBe(visible);
         return this;
