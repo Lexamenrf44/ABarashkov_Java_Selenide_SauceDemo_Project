@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.saucedemo.model.ScreenDiffer;
 import io.qameta.allure.Allure;
 import lombok.SneakyThrows;
-import org.apache.commons.io.FileUtils;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
 
@@ -13,7 +12,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.IOException;
 import java.util.Base64;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,19 +19,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ScreenshotUtils {
 
     private static final String SCREENSHOT_FOLDER = "src/test/resources/screenshots/";
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    public static void verifyScreenshot(SelenideElement element) throws IOException {
+    @SneakyThrows
+    public static void verifyScreenshot(SelenideElement element) {
         String elementName = getElementName(element);
         String screenshotPath = SCREENSHOT_FOLDER + elementName + ".png";
 
         File actualScreenshotFile = element.screenshot();
         File expectedScreenshotFile = new File(screenshotPath);
-        if (!expectedScreenshotFile.exists()) {
-            FileUtils.copyFile(actualScreenshotFile, expectedScreenshotFile);
-            Allure.addAttachment("Expected screenshot created",
-                    "Expected screenshot was not found. Created a new one: " + screenshotPath);
-            return;
-        }
 
         BufferedImage expectedImage = ImageIO.read(expectedScreenshotFile);
         BufferedImage actualImage = ImageIO.read(actualScreenshotFile);
@@ -47,14 +41,10 @@ public class ScreenshotUtils {
                     .diff("data:image/png;base64," + Base64.getEncoder().encodeToString(imageToBytes(diffImage)))
                     .build();
 
-            ObjectMapper objectMapper = new ObjectMapper();
             String jsonString = objectMapper.writeValueAsString(screenDiffer);
             Allure.addAttachment("Screenshot diff",
                     "application/vnd.allure.image.diff",
                     jsonString);
-
-            File diffFile = new File(SCREENSHOT_FOLDER + "diff_" + elementName + ".png");
-            ImageIO.write(diffImage, "png", diffFile);
 
             assertThat(diff.hasDiff()).isFalse();
         } else {
@@ -72,10 +62,6 @@ public class ScreenshotUtils {
 
     private static String getElementName(SelenideElement element) {
         String name = element.getAttribute("data-test");
-        if (name == null || name.isEmpty()) {name = element.getAttribute("id");}
-        if (name == null || name.isEmpty()) {name = element.getAttribute("name");}
-        if (name == null || name.isEmpty()) {name = "unknown_element";}
-
         return name.replaceAll("[^a-zA-Z0-9_-]", "_"); // Очищаем от недопустимых символов
     }
 }
