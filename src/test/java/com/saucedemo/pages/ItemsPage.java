@@ -3,8 +3,6 @@ package com.saucedemo.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.utils.ScreenshotUtils;
 
-import java.io.IOException;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -20,48 +18,38 @@ public class ItemsPage extends BasePage<ItemsPage> {
             redJumperItemImage = $("[data-test='item-test.allthethings()-t-shirt-(red)-img']");
 
     @Override
-    public InventoryPage checkThatPageLoaded() {
-        return null;
-    }
-
-    public ItemsPage waitUntilInventoryContainerVisible() {
+    public ItemsPage checkThatPageLoaded() {
         inventoryItemContainer.shouldBe(visible);
         return this;
     }
 
-    public ItemsPage assertBackpackItemImage() throws IOException {
+    public ItemsPage assertBackpackItemImage() {
         ScreenshotUtils.verifyScreenshot(backpackItemImage);
-        manuallyClearCookies();
         return this;
     }
 
-    public ItemsPage assertBikeLightItemImage() throws IOException {
+    public ItemsPage assertBikeLightItemImage() {
         ScreenshotUtils.verifyScreenshot(bikeLightItemImage);
-        manuallyClearCookies();
         return this;
     }
 
-    public ItemsPage assertBoltTShirtItemImage() throws IOException {
+    public ItemsPage assertBoltTShirtItemImage() {
         ScreenshotUtils.verifyScreenshot(boltTShirtItemImage);
-        manuallyClearCookies();
         return this;
     }
 
-    public ItemsPage assertFleeceJacketItemImage() throws IOException {
+    public ItemsPage assertFleeceJacketItemImage() {
         ScreenshotUtils.verifyScreenshot(fleeceJacketItemImage);
-        manuallyClearCookies();
         return this;
     }
 
-    public ItemsPage assertOnesieItemImage() throws IOException {
+    public ItemsPage assertOnesieItemImage() {
         ScreenshotUtils.verifyScreenshot(onesieItemImage);
-        manuallyClearCookies();
         return this;
     }
 
-    public ItemsPage assertRedJumperItemImage() throws IOException {
+    public ItemsPage assertRedJumperItemImage() {
         ScreenshotUtils.verifyScreenshot(redJumperItemImage);
-        manuallyClearCookies();
         return this;
     }
 }
