@@ -2,7 +2,6 @@ package com.saucedemo.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.saucedemo.jupiter.BrowserExtension;
-import com.saucedemo.pages.BasePage;
 import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.ItemsPage;
 import com.saucedemo.pages.LoginPage;
@@ -24,7 +23,7 @@ public class TestBase {
         Configuration.baseUrl = "https://www.saucedemo.com/";
         Configuration.browserSize = "1440x900";
         Configuration.browser = FIREFOX;
-        Configuration.headless = false;
+        Configuration.headless = true;
     }
 
 }
