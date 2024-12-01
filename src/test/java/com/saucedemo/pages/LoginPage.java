@@ -20,7 +20,7 @@ public class LoginPage extends BasePage<LoginPage> {
             passwordField = $("[data-test='password']");
 
     @Override
-    public InventoryPage checkThatPageLoaded() {
+    public LoginPage checkThatPageLoaded() {
         return null;
     }
 
