@@ -8,36 +8,48 @@ public class InventoryItemsTest extends TestBase {
     @CookieLogin(url = "inventory-item.html?id=0")
     @Test
     public void checkBikeLightItem() {
-        itemsPage.assertBikeLightItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertBikeLightItemImage();
     }
 
     @CookieLogin(url = "inventory-item.html?id=1")
     @Test
     public void checkBoltTShirtItem() {
-        itemsPage.assertBoltTShirtItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertBoltTShirtItemImage();
     }
 
     @CookieLogin(url = "inventory-item.html?id=2")
     @Test
     public void checkOnesieItem() {
-        itemsPage.assertOnesieItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertOnesieItemImage();
     }
 
     @CookieLogin(url = "inventory-item.html?id=3")
     @Test
     public void checkRedJumperItem() {
-        itemsPage.assertRedJumperItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertRedJumperItemImage();
     }
 
     @CookieLogin(url = "inventory-item.html?id=4")
     @Test
     public void checkBackpackItem() {
-        itemsPage.assertBackpackItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertBackpackItemImage();
     }
 
     @CookieLogin(url = "inventory-item.html?id=5")
     @Test
     public void checkFleeceJacketItem() {
-        itemsPage.assertFleeceJacketItemImage();
+        itemsPage
+                .checkThatPageLoaded()
+                .assertFleeceJacketItemImage();
     }
 }
