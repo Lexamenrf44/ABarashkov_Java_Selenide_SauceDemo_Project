@@ -23,8 +23,8 @@ public class InventoryPage extends BasePage<InventoryPage> {
     @Step("Do manual logout via UI")
     public LoginPage doLogout() {
         checkThatPageLoaded();
-        burgerMenuButton.shouldBe(visible).click();
-        logoutSideBarButton.shouldBe(visible).click();
+        burgerMenuButton.click();
+        logoutSideBarButton.click();
 
         return new LoginPage().checkThatPageLoaded();
     }
@@ -49,7 +49,7 @@ public class InventoryPage extends BasePage<InventoryPage> {
 
     @Step("Navigage to shopping cart")
     public CartPage navigateToShoppingCart() {
-        shoppingCartButton.shouldBe(visible).click();
+        shoppingCartButton.click();
         return new CartPage().checkThatPageLoaded();
     }
 }
