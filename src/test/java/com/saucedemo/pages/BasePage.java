@@ -16,5 +16,5 @@ public abstract class BasePage <T extends BasePage<?>> {
         return (T) this;
     }
 
-    public abstract InventoryPage checkThatPageLoaded();
+    public abstract T checkThatPageLoaded();
 }
