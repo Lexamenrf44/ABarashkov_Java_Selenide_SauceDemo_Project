@@ -1,5 +1,6 @@
 package com.saucedemo.web.pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.web.components.NavbarComponent;
 import io.qameta.allure.Step;
@@ -30,9 +31,9 @@ public class InventoryPage extends BasePage<InventoryPage> {
     }
 
     @Step("Do logout on refresh after cookies being spoiled")
-    public LoginPage logoutOnRefreshAfterCookiesSpoiled() {
+    public LoginPage logoutOnRefreshAfterCookiesSpoiled(int wait) {
         checkThatPageLoaded();
-        sleep(3500);
+        sleep(wait);
         refresh();
 
         return new LoginPage().checkThatPageLoaded();

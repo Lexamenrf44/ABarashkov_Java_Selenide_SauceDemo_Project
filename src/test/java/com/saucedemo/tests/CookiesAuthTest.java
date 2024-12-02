@@ -18,7 +18,7 @@ public class CookiesAuthTest extends TestBase {
     @Test
     @DisplayName("Should logout after cookies spoiled in 3 seconds on [Refresh]")
     void loggedOutAfterCookiesSpoiled() {
-        inventoryPage.logoutOnRefreshAfterCookiesSpoiled();
+        inventoryPage.logoutOnRefreshAfterCookiesSpoiled(3500);
         loginPage.loggedOutUserAssertion(LogoutAlerts.INVENTORY_PAGE_ALERT);
     }
 
