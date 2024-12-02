@@ -1,6 +1,7 @@
-package com.saucedemo.pages;
+package com.saucedemo.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.saucedemo.web.components.NavbarComponent;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -8,11 +9,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class InventoryPage extends BasePage<InventoryPage> {
 
+    private final NavbarComponent navbarComponent = new NavbarComponent();
+
     private final SelenideElement
             inventoryContainer = $("[data-test='inventory-container']"),
-            shoppingCartButton = $("[data-test='shopping-cart-link']"),
-            burgerMenuButton = $("[id='react-burger-menu-btn']"),
-            logoutSideBarButton = $("[data-test='logout-sidebar-link']");
+            shoppingCartButton = $("[data-test='shopping-cart-link']");
 
     @Override
     public InventoryPage checkThatPageLoaded() {
@@ -23,8 +24,7 @@ public class InventoryPage extends BasePage<InventoryPage> {
     @Step("Do manual logout via UI")
     public LoginPage doLogout() {
         checkThatPageLoaded();
-        burgerMenuButton.click();
-        logoutSideBarButton.click();
+        navbarComponent.clickLogoutButton();
 
         return new LoginPage().checkThatPageLoaded();
     }
