@@ -1,4 +1,4 @@
-package com.saucedemo.pages;
+package com.saucedemo.web.pages;
 
 import io.qameta.allure.Step;
 

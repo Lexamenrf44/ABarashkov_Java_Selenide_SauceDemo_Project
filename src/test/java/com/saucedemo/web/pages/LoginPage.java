@@ -1,4 +1,4 @@
-package com.saucedemo.pages;
+package com.saucedemo.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.data.LoginAlerts;
