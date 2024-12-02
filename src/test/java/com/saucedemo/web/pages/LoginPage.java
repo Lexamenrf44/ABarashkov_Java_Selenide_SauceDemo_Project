@@ -1,53 +1,53 @@
-package com.saucedemo.pages;
+package com.saucedemo.web.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.saucedemo.data.LoginAlerts;
 import com.saucedemo.data.LogoutAlerts;
 import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
+public class LoginPage extends BasePage<LoginPage> {
 
-    // Тесты должны быть потокобезопасными (узнать больше), потому что запускаются в многопотоке
-
-    /* LOCATORS */
-
-    // Common
     private final SelenideElement
-            title = $(withText("Swag Labs")),
-            errorLabel = $("h3[data-test='error']");
-
-    // Buttons
-    private final SelenideElement
-            loginButton = $("[data-test='login-button']");
-
-    // Fields
-    private final SelenideElement
+            loginContainer = $("[data-test='login-container']"),
+            errorLabel = $("h3[data-test='error']"),
+            loginButton = $("[data-test='login-button']"),
             loginField = $("[data-test='username']"),
             passwordField = $("[data-test='password']");
 
-    /* METHODS */
+    @Override
+    @Step("Check that Login Page is visible")
+    public LoginPage checkThatPageLoaded() {
+        loginContainer.shouldBe(visible);
+        return this;
+    }
 
-    public LoginPage doLogin(Username username, Password password) {
+    @Step("Do manual login via UI")
+    public InventoryPage doLogin(Username username, Password password) {
+        checkThatPageLoaded();
         loginField.setValue(username.name());
         passwordField.setValue(password.name());
         loginButton.click();
 
-        return this;
+        return new InventoryPage().checkThatPageLoaded();
     }
-
-    public LoginPage setAuthFieldsManually(String username, String password) {
+    
+    
+    
+    @Step("Set manually login and password fields and press login button")
+    public LoginPage setManuallyAuthFieldsAndPressLogin(String username, String password) {
         loginField.setValue(username);
         passwordField.setValue(password);
         loginButton.click();
 
         return this;
     }
-
+    
+    @Step("Assert invalid user authorisation message")
     public LoginPage invalidUserAuthorisationAssertion(LoginAlerts alert) {
         errorLabel.shouldHave(text(alert.getMessagePattern()));
         loginField.shouldHave(cssClass("error"));
@@ -55,7 +55,8 @@ public class LoginPage {
 
         return this;
     }
-
+    
+    @Step("Assert logged out user message")
     public LoginPage loggedOutUserAssertion(LogoutAlerts alert) {
         errorLabel.shouldHave(matchText(alert.getMessagePattern()));
         loginField.shouldHave(cssClass("error"));

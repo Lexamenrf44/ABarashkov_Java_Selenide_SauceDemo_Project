@@ -2,8 +2,10 @@ package com.saucedemo.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.saucedemo.jupiter.BrowserExtension;
-import com.saucedemo.pages.InventoryPage;
-import com.saucedemo.pages.LoginPage;
+import com.saucedemo.web.pages.CartPage;
+import com.saucedemo.web.pages.InventoryPage;
+import com.saucedemo.web.pages.ItemsPage;
+import com.saucedemo.web.pages.LoginPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -14,6 +16,8 @@ public class TestBase {
 
     protected final LoginPage loginPage = new LoginPage();
     protected final InventoryPage inventoryPage = new InventoryPage();
+    protected final ItemsPage itemsPage = new ItemsPage();
+    protected final CartPage cartPage = new CartPage();
 
     @BeforeAll
     static void browserOpeningConfiguration() {

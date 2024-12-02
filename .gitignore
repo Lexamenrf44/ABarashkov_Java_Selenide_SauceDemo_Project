@@ -7,6 +7,7 @@ build/
 allure-results/
 settings.gradle.kts
 
+
 ### IntelliJ IDEA ###
 .idea
 .idea/

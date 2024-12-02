@@ -2,7 +2,6 @@ package com.saucedemo.tests;
 
 import com.saucedemo.data.LoginAlerts;
 import com.saucedemo.data.LogoutAlerts;
-import com.saucedemo.data.Password;
 import com.saucedemo.data.Username;
 import com.saucedemo.jupiter.CookieLogin;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +13,7 @@ public class InvalidAuthTest extends TestBase {
     @DisplayName("Should not authorize with locked out user")
     void loginWithLockedOutUser() {
         loginPage
-                .doLogin(Username.locked_out_user, Password.secret_sauce)
+                .setManuallyAuthFieldsAndPressLogin("locked_out_user", "secret_sauce")
                 .invalidUserAuthorisationAssertion(LoginAlerts.LOCKED_OUT_USER_ALERT);
     }
 
@@ -22,7 +21,7 @@ public class InvalidAuthTest extends TestBase {
     @DisplayName("Should not authorize without credentials")
     void loginWithoutCredentials() {
         loginPage
-                .setAuthFieldsManually("","")
+                .setManuallyAuthFieldsAndPressLogin("","")
                 .invalidUserAuthorisationAssertion(LoginAlerts.INVALID_USERNAME_ALERT);
     }
 
@@ -30,7 +29,7 @@ public class InvalidAuthTest extends TestBase {
     @DisplayName("Should not authorize with invalid credentials")
     void loginWithInvalidCredentials() {
         loginPage
-                .setAuthFieldsManually("asdasd", "asdasdad")
+                .setManuallyAuthFieldsAndPressLogin("asdasd", "asdasdad")
                 .invalidUserAuthorisationAssertion(LoginAlerts.INVALID_USERNAME_AND_PASSWORD_ALERT);
     }
 

@@ -5,18 +5,20 @@ import com.saucedemo.jupiter.CookieLogin;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.refresh;
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class CookiesAuthTest extends TestBase {
+
+    @CookieLogin
+    @Test
+    @DisplayName("Should authorize with cookies")
+    void shouldAuthorizeWithCookies() {
+        inventoryPage.checkThatPageLoaded();
+    }
 
     @CookieLogin(cookieLifeTimeInSeconds = 3)
     @Test
     @DisplayName("Should logout after cookies spoiled in 3 seconds on [Refresh]")
     void loggedOutAfterCookiesSpoiled() {
-        inventoryPage.waitUntilInventoryContainerVisible();
-        sleep(3500);
-        refresh();
+        inventoryPage.logoutOnRefreshAfterCookiesSpoiled(3500);
         loginPage.loggedOutUserAssertion(LogoutAlerts.INVENTORY_PAGE_ALERT);
     }
 
@@ -24,10 +26,7 @@ public class CookiesAuthTest extends TestBase {
     @Test
     @DisplayName("Should logout after manually clearing cookies on [Refresh]")
     void loggedOutAfterClearingCookiesManually() {
-        inventoryPage
-                .waitUntilInventoryContainerVisible()
-                .manuallyClearCookies();
-        refresh();
+        inventoryPage.logoutOnRefreshAfterManuallyClearingCookies();
         loginPage.loggedOutUserAssertion(LogoutAlerts.INVENTORY_PAGE_ALERT);
     }
 }
