@@ -16,5 +16,4 @@ public enum LoginAlerts {
     public String getMessagePattern() {
         return messagePattern;
     }
-
 }
