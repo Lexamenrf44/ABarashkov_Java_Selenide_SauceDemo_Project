@@ -3,11 +3,11 @@ package com.saucedemo.web.components;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class NavbarComponent {
+
     private final SelenideElement self = $(".bm-item-list");
     private final SelenideElement
             burgerMenuButton = $("[id='react-burger-menu-btn']"),
