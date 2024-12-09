@@ -58,13 +58,13 @@ public class InventoryPage extends BasePage<InventoryPage> {
         return new LoginPage().checkThatPageLoaded();
     }
 
-    @Step("Filter by option")
+    @Step("Filter by option {optionFilter}")
     public InventoryPage filterByOption(FilterOptions optionFilter) {
         filterComponent.filterByOption(optionFilter);
         return this;
     }
 
-    @Step("Assert that")
+    @Step("Assert that filtered by {optionFilter} inventory items are equal to sortedItems by {optionFilter}")
     public InventoryPage assertByOption(FilterOptions optionFilter) {
         List<CartModel> filteredInventoryItems = new ArrayList<>();
 
