@@ -23,7 +23,7 @@ public class TestBase {
         Configuration.baseUrl = "https://www.saucedemo.com/";
         Configuration.browserSize = "1440x900";
         Configuration.browser = FIREFOX;
-        Configuration.headless = true;
+        Configuration.headless = false;
     }
 
 }

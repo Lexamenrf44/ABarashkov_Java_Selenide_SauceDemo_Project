@@ -66,13 +66,7 @@ public class InventoryPage extends BasePage<InventoryPage> {
 
     @Step("Assert that filtered by {optionFilter} inventory items are equal to sortedItems by {optionFilter}")
     public InventoryPage assertByOption(FilterOptions optionFilter) {
-        List<CartModel> filteredInventoryItems = new ArrayList<>();
-
-        inventoryItems.forEach(e -> {
-            filteredInventoryItems.add(
-                    new CartModel(e)
-            );
-        });
+        List<CartModel> filteredInventoryItems = getItemList();
 
         List<CartModel> sortedItems = new ArrayList<>(filteredInventoryItems);
         sortedItems.sort(optionFilter.getComparator());
